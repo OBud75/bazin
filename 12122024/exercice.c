@@ -1,51 +1,52 @@
-#include "exercice.h"
+#include "exercices.h"
 #include <stdio.h>
 
-typedef struct Person {
-  int age;
-} Person;
-typedef struct Book {
-  int pages;
-} Book;
-
-int are_persons_equals(Person *p1, Person *p2) {
-  //return 1 if same age
-};
-int are_books_equals(Book *b1, Book *b2) {
-  //return 1 if same nb of pages
-};
-int are_equals(void *obj1, void *obj2, int (*compare_fnc)(void *, void *)) {
-
-};
-int is_in_array(void *obj_to_find,
-                void *array[]
-                int nb_of_elems_in_array,
-                size_t elem_size,
-                int (*compare_fnc)(void *, void *) {
+void eq_function() {
+    Person person1 = {50};
+    Person person2 = {0};
+    int same_age = are_equals(
+        &person1, &person2,
+        (int (*)(void *, void *)) are_persons_equals
+    );
+    if (same_age == 1) {printf("Same age.\n");};
 }
+void linear_search() {
+    Person person1 = {50};
+    Person people[] = {{20}, {50}};
+    int found = is_in_array(
+        &person1, &people,
+        sizeof(people) / sizeof(Person), sizeof(Person),
+        (int (*)(void *, void *)) are_persons_equals
+    );
+    if (found == 1) {printf("P1 is in the array.\n");};
+    Book book1 = {50};
+    Book books[] = {{20}, {50}};
+    int found = is_in_array(
+        &book1, &books,
+        sizeof(books) / sizeof(Book), sizeof(Book),
+        (int (*)(void *, void *)) are_books_equals
+    );
+    if (found == 1) {printf("B1 is in the array.\n");};
+}
+void generic_swap() {
+    Person person1 = {50};
+    Person person2 = {25};
+    swap(&person1, &person2, sizeof(Person));
+    Book b1 = {50};
+    Book b2 = {25};
+    swap(&b1, &b2, sizeof(Book));
+};
 
-int main () {
-  Person person1 = {50};
-  Person person2 = {50};
-  int same_age = are_equals(
-    &person1,
-    &person2,
-    (int (*)(void *, void *)) are_persons_equals
-  );
-  if (same_age == 1) {
-    printf("Same age.\n");
-  } else {
-    printf("Not same age.\n");
-  };
-  Person people[] = {{20}, {10}};
-  int is_in_array(
-    &person1,
-    &people,
-    2,
-    sizeof(Person)
-    (int (*)(void *, void *)) are_persons_equals
-  );
-  if (same_age == 1) {
-    printf("Same age.\n");
-  };
+int main() {
+    eq_function();
+    linear_search();
+    generic_swap();
+    Person people[] = {{20}, {50}, {188}, {2}};
+    sort(
+        &people,
+        sizeof(people) / sizeof(Person),
+        sizeof(Person),
+        is_greater,
+        swap
+    );
 }
