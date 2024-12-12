@@ -1,9 +1,9 @@
+#include "exercices.h"
 #include <stdio.h>
 
 typedef struct Person {
   int age;
 } Person;
-
 typedef struct Book {
   int pages;
 } Book;
