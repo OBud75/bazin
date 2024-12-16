@@ -1,6 +1,6 @@
 #include "exercices.h"
 #include <stdio.h>
-#include <string.h>  // For memcpy
+#include <string.h>
 
 int are_persons_equals(Person *p1, Person *p2) {
   return p1->age == p2->age;
