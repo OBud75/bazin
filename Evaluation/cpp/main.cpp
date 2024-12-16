@@ -4,23 +4,19 @@
 #include <cassert>
 
 int main() {
-    // Create a User with password
     Password password("toto");
     User user(1, password);
-
-    // Test password encryption
     assert(password == "toto");
-    std::cout << "Password encryption test passed." << std::endl;
+    
+    std::cout << "test du chiffrement ok" << std::endl;
 
-    // Save user
     user.save();
 
-    // Retrieve the User and attempt login
     User &retrieved_user = User::get(1);
     if (retrieved_user.login("toto")) {
-        std::cout << "Login successful." << std::endl;
+        std::cout << "Login reussi" << std::endl;
     } else {
-        std::cout << "Login failed." << std::endl;
+        std::cout << "Login rate" << std::endl;
     }
 
     return 0;
