@@ -1,6 +1,5 @@
 #include "password.hpp"
 
-// Implementation of Password class methods
 Password::Password(const std::string &password, bool is_encrypted) {
     if (is_encrypted) {
         _encrypted_value = password;
@@ -11,7 +10,6 @@ Password::Password(const std::string &password, bool is_encrypted) {
 }
 
 void Password::encrypt(const std::string &password) {
-    // Placeholder encryption function
     _encrypted_value = std::string(password.rbegin(), password.rend());
 }
 
