@@ -18,4 +18,4 @@ class Password {
         friend std::ostream &operator<<(std::ostream &os, const Password &p);
 };
 
-#endif // PASSWORD_HPP
+#endif
