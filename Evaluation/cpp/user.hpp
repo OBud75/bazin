@@ -17,4 +17,4 @@ class User {
         static User &get(int id);
 };
 
-#endif // USER_HPP
+#endif
