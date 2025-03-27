@@ -19,5 +19,12 @@ int main() {
         std::cout << "Login rate" << std::endl;
     }
 
+
+    User &bugged = User::get(1000);
+    std::cout << "User ID: " << bugged.getId() << std::endl;
+
+    bugged.setId(1001);
+    std::cout << "User ID: " << retrieved_user.getId() << std::endl;
+
     return 0;
 }

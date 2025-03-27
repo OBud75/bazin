@@ -20,5 +20,14 @@ void User::save() {
 
 User& User::get(int id) {
     static User user(id, Password("default"));
+    // static fait en sorte que l'utilisateur soit créé (et donc initialisé)
+    // une seule fois, il est ensuite partagé entre les appels. (cf main)
+    // Pour éviter cela, il faudrait créer un utilisateur à chaque appel,
+    // donc enlever le static et, soit retourner une copie : User,
+    // soit retourner un pointeur/référence : User* / User& en ayant
+    // alloué l'utilisateur sur le tas avec new (l'équivalent de malloc en C).
+    // Mais cela impliquerait de gérer la mémoire (libérer l'utilisateur
+    // avec delete), pour éviter cela, C++ propose des smart pointers,
+    // on retournera un std::unique_ptr<User> ou std::shared_ptr<User>.
     return user;
 }
