@@ -24,6 +24,7 @@ Map* get_map(int width, int height) {
     map->width = width;
     map->height = height;
     map->blocks = (Block **)malloc(width * height * sizeof(Block *));
+    // Pensez à vérifier que malloc a bien fonctionné et non renvoyé NULL
 
     for (int i = 0; i < width; ++i) {
         for (int j = 0; j < height; ++j) {

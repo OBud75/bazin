@@ -21,6 +21,11 @@ int is_in_array(void *obj_to_find, void *array, int nb_of_elems_in_array, size_t
     }
   }
   return 0;
+  // On peut itérer directement sur les objets de l'array en itérant sur leurs pointeurs:
+  // for (char *ptr = array; ptr < (char *)array + nb_of_elems_in_array * elem_size; ptr += elem_size) {
+  //   if (compare_fnc(obj_to_find, ptr)) {
+  //     return 1;
+  //   }
 }
 
 void swap(void *a, void *b, size_t size) {
@@ -44,6 +49,9 @@ void eq_function() {
   if (same_age == 1) { printf("Same age.\n"); }
   else { printf("Not same age.\n"); }
 }
+
+// Comme fonction de comparaison, on peut penser à retourner
+// 1 si obj1 > que obj2, -1 si obj1 < obj2, et 0 si ils sont égaux
 
 void linear_search() {
   Person person1 = {50};
